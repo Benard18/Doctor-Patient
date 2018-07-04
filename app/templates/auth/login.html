@@ -2,13 +2,39 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<h1>Patient Sign In</h1>
-<div class="row">
-<div class="col-md-4">
-{{ wtf.quick_form(login_form) }}
-</div>
+
+
+<div class="container">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">sign in
+  </button>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Patient Form</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+          <div class="col-md-4">
+          {{ wtf.quick_form(login_form) }}
+
+          <button class="btn btn-success"><a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
+
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 <br>
-<p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
-<p>
 {% endblock %}
