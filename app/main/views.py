@@ -13,7 +13,3 @@ def index():
 @main.route('/authdoc/login')
 def logindoc():
 	return render_template('login.html')
-
-
-
-	
