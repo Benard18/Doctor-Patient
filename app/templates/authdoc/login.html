@@ -2,13 +2,13 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<h1>Patient Sign In</h1>
+<h1>Doctor login</h1>
 <div class="row">
 <div class="col-md-4">
 {{ wtf.quick_form(login_form) }}
 </div>
 </div>
 <br>
-<p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
+<p><a href="{{ url_for('auth.login') }}">Login</a></p>
 <p>
 {% endblock %}

@@ -15,17 +15,19 @@
 <span class="icon-bar"></span>
 </button>
 
-
-
 </ul>
 <ul class="nav navbar-nav navbar-right">
 {% if current_user.is_anonymous %}
-<li><a href="{{ url_for('auth.login') }}">Login</a></li>
+<li>
+  <a href="{{ url_for('auth.login') }}">Login as Patient</a>
+</li>
 {% else %}
-
 <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
 {% endif %}
 </ul>
+
+<a href="/authdoc/login.html">Doctor login</a>
+
 </div>
 </div>
 </nav>
@@ -45,4 +47,3 @@
 {% block app_content %}{% endblock %}
 </div>
 {% endblock %}
-
