@@ -8,12 +8,6 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 import datetime
 
-try:
-	import argparse
-	flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-	flags = None
-
 # Setup the Calendar API
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 store = file.Storage('credentials.json')
@@ -24,23 +18,24 @@ if not creds or creds.invalid:
 			if flags else tools.run(flow,store)
 service = build('calendar', 'v3', http=creds.authorize(Http()))
 
+def sendemail(email,start,end,currentuser):
+    # Call the Calendar API
+    # attendees=[{'email':x} for x in emails]
+    GMT_OFF = ':00+03:00'
+    EVENT = {
+    	'summary': 'Appointments',
+    	'start': {'dateTime':start+GMT_OFF},
+    	'end':   {'dateTime':end+GMT_OFF},
+    	'attendees':[
+    		{'email':email},
+    	],
+        'description':currentuser+' has requested for an appointment'
+    }
 
-# Call the Calendar API
-# attendees=[{'email':x} for x in emails]
-GMT_OFF = '+03:00'
-EVENT = {
-	'summary': 'Appointments',
-	'start': {'dateTime':'2018-07-25T10:00:00%s' % GMT_OFF},
-	'end':   {'dateTime':'2018-07-25T12:00:00%s' % GMT_OFF},
-	'attendees':[
-		{'email':'xavierkibet@gmail.com'},
-	],
-}
+    e = service.events().insert(calendarId='primary',
+    	sendNotifications=True, body=EVENT).execute()
 
-e = service.events().insert(calendarId='primary',
-	sendNotifications=True, body=EVENT).execute()
-
-print('''*** %r event added
-	Start: %s
-	End: %s'''% (e['summary'].encode('utf-8'),
-	e['start']['dateTime'],e['end']['dateTime']))
+    print('''*** %r event added
+    	Start: %s
+    	End: %s'''% (e['summary'].encode('utf-8'),
+    	e['start']['dateTime'],e['end']['dateTime']))

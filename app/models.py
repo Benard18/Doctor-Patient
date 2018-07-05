@@ -8,29 +8,6 @@ from datetime import datetime
 def load_user(user_id):
 	return PatientUser.query.get(int(user_id))
 
-class Admin(UserMixin, db.Model):
-	__tablename__='admin'
-
-	id=db.Column(db.Integer, primary_key=True)
-	adminname=db.Column(db.String(255))
-	adminemail=db.Column(db.String(255))
-	passwr=db.Column(db.String(255))
-	passwr_secure=db.Column(db.String(255))
-
-	@property
-	def password(self):
-		raise AttributeError('You cannot read the password attribute')
-
-	@password.setter
-	def password(self, password):
-		self.passwr_secure = generate_password_hash(password)
-
-	def verify_password(self, password):
-		return check_password_hash(self.passwr_secure, password)
-
-	def __repr__(self):
-		return f'Admin {self.username}'
-
 
 class PatientUser(UserMixin, db.Model):
 	__tablename__='patientuser'
@@ -59,7 +36,6 @@ class PatientUser(UserMixin, db.Model):
 	def __repr__(self):
 		return f'PatientUser {self.username}'
 
-
 class DoctorUser(UserMixin, db.Model):
 	__tablename__='doctoruser'
 
@@ -70,8 +46,6 @@ class DoctorUser(UserMixin, db.Model):
 	pass_hash=db.Column(db.String(255))
 	docemail=db.Column(db.String(255))
 	feedback_doctor=db.Column(db.String(255))
-
-
 
 
 	@property
