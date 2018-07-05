@@ -4,9 +4,12 @@
 {% if title %}{{ title }} - Hospital{% else %}Welcome to Moringa Hospital{% endif %}
 {% endblock %}
 
-{% block navbar %}
+  <div>
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
+  </div>
 
-{% endblock %}
 
 {% block content %}
 <div class="container">

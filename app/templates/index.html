@@ -13,22 +13,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="./static/css/bootstrap.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href=".static/css/font-awesome.min.css">
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href=".static/css/animate.css" />
-        <link rel="stylesheet" href=".static/css/plugins.css" />
-        <!--Theme custom css -->
-        <link rel="stylesheet" href=".static/css/style.css">
+
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'></link>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'></link>
+        <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'></link>
+
         <!--Theme Responsive css-->
+
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"></link>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}"></link>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}"></link>
+
+
+      <script src="{{url_for('static',filename='js/modernizr.js')}}"></script>
+
+     
         <link rel="stylesheet" href=".static/css/responsive.css" />
         <script src=".static/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 
     </head>
     <body>
 
+
 		 <!-- End Header Section -->
+	<header class="top-header">
 <div class="navbar navbar-inverse" role="navigation" id="navigate">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -38,106 +47,339 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-      <a class="navbar-brand" href="/"> Home </a>
+              <a class="navbar-brand" href="/"> Moringa Hospital </a>
     </div>
 
     <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <a class="navbar-brand text-center" href="/">About</a>
-            <a class="navbar-brand text-center" href="/">Contacts</a>
-            <a class="navbar-brand text-center" href="/">Services</a>
-          </ul>
+          <ul class="nav navbar-nav navbar-left">
+					        <li><a class="menu active" href="#home"><i class="fa fa-home"></i>Home</a></li>
+					        <li><a class="menu" href="#about"><i class="fa fa-info"></i>about us</a></li>
+					        <li><a class="menu" href="#service"><i class="fa fa-ambulance"></i>our services </a></li>
+					        <li><a class="menu" href="#team"><i class="fa fa-user-md"></i>our Doctors</a></li>
+					        <li><a class="menu" href="#contact"> <i class="fa fa-envelope"></i>Book appointment</a></li>
+					      </ul>
           <ul class="nav navbar-nav navbar-right">
             <!-- {% if current_user.is_authenticated %} -->
             <li><!-- {{ current_user.username }} --></li>
-            <li><a href="{{url_for('auth.logout')}}">Sign out </a></li>
+            <li><a href="{{url_for('auth.logout')}}"><i class="fa fa-sign-out"></i>Sign out </a></li>
             <!-- {% else %} -->
-            <li><a href="{{url_for('auth.login')}}">Sign in </a></li>
+            <li><a href="{{url_for('auth.login')}}"><i class="fa fa-sign-in"></i>Sign in </a></li>
             <!-- {% endif %} -->
           </ul>
         </div>
 
       </div>
     </div>
+  </header> <!-- end of header area -->
 
-<section id="slider" class="slider">
-            <div class="slider_overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_slider text-center">
-                            <div class="col-md-12">
-                                <div class="main_slider_content wow zoomIn" data-wow-duration="1s">
+  <section class="slider" id="home">
+  		<div class="container-fluid">
+  			<div class="row">
+  			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+  					<div class="header-backup"></div>
+  			        <!-- Wrapper for slides -->
+  			        <div class="carousel-inner" role="listbox">
+  			            <div class="item active">
+  			            	<img src="{{url_for('static',filename='images/slide-one.jpg')}}">
+  			                <div class="carousel-caption">
+  		               			<h1>Moringa</h1>
+  		               			<p>highquality service for men &amp; women</p>
 
-                                    <p style="font-size: 150px">Moringa Hospital</p>
-                                </div>
-                            </div>
-                        </div>
+  			                </div>
+  			            </div>
+  			            <div class="item">
+  			            	<img src="{{url_for('static',filename='images/slide-two.jpg')}}">
+  			                <div class="carousel-caption">
+  		               			<h1>Moringa</h1>
+  		               			<p>highquality service for men &amp; women</p>
 
-                    </div>
-                </div>
-            </div>
-        </section>
+  			                </div>
+  			            </div>
+  			            <div class="item">
+  			            	<img src="{{url_for('static',filename='images/slide-three.jpg')}}">
+  			                <div class="carousel-caption">
+  		               			<h1>Moringa</h1>
+  		               			<p>highquality service for men &amp; women</p>
+
+  			                </div>
+  			            </div>
+  			            <div class="item">
+  			            	<img src="{{url_for('static',filename='images/slide-four.jpg')}}">
+  			                <div class="carousel-caption">
+  		               			<h1>Moringa</h1>
+  		               			<p>highquality service for men &amp; women</p>
+
+  			                </div>
+  			            </div>
+  			        </div>
+  			        <!-- Controls -->
+  			    </div>
+  			</div>
+  		</div>
+  	</section>
+
+    <!-- about section -->
+    	<section class="about text-center" id="about">
+    		<div class="container">
+    			<div class="row">
+    				<h2>about us</h2>
+    				<h4>we care about you guys</h4>
+    				<div class="col-md-4 col-sm-6">
+    					<div class="single-about-detail clearfix">
+    						<div class="about-img">
+    							<img class="img-responsive" src="{{url_for('static',filename='images/wheel.jpeg')}}" alt="">
+    						</div>
+    						<div class="about-details">
+    							<div class="pentagon-text">
+    								<h1>A</h1>
+    							</div>
+    							<h3>Admission</h3>
+    							<p>Saving lives is our main Agenda whether. We offer one of the best qualities to our patient</p>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="col-md-4 col-sm-6">
+    					<div class="single-about-detail">
+    						<div class="about-img">
+    							<img class="img-responsive" src="{{url_for('static',filename='images/child.jpg')}}" alt="">
+    						</div>
+    						<div class="about-details">
+    							<div class="pentagon-text">
+    								<h1>C</h1>
+    							</div>
+
+    							<h3>Children Treatment</h3>
+    							<p>We offer services to children with the best doctors we have:</p>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="col-md-4 col-sm-6">
+    					<div class="single-about-detail">
+    						<div class="about-img">
+    							<img class="img-responsive" src="{{url_for('static',filename='images/bed.jpeg')}}" alt="">
+    						</div>
+    						<div class="about-details">
+    							<div class="pentagon-text">
+    								<h1>M</h1>
+    							</div>
+    							<h3>Our equipment</h3>
+    							<p>Our Equipment truly betrays our services</p>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</section>
+      <!-- end of about section -->
+
+      <!-- service section starts here -->
+  	<section class="service text-center" id="service" style="background-color:#1e90ff">
+  		<div class="container">
+  			<div class="row">
+  				<h2>our services</h2>
+  				<h4>check out for our services and give us feedback on chat you think</h4>
+  				<div class="col-md-3 col-sm-6">
+  					<div class="single-service">
+  						<div class="single-service-img">
+  							<div class="service-img">
+  								<img class="heart img-responsive" src="{{url_for('static',filename='images/service1.png')}}" alt="">
+  							</div>
+  						</div>
+  						<h3>Heart problem</h3>
+  					</div>
+  				</div>
+  				<div class="col-md-3 col-sm-6">
+  					<div class="single-service">
+  						<div class="single-service-img">
+  							<div class="service-img">
+  								<img class="brain img-responsive" src="{{url_for('static',filename='images/service2.png')}}" alt="">
+  							</div>
+  						</div>
+  						<h3>brain problem</h3>
+  					</div>
+  				</div>
+  				<div class="col-md-3 col-sm-6">
+  					<div class="single-service">
+  						<div class="single-service-img">
+  							<div class="service-img">
+  								<img class="knee img-responsive" src="{{url_for('static',filename='images/service3.png')}}" alt="">
+  							</div>
+  						</div>
+  						<h3>knee problem</h3>
+  					</div>
+  				</div>
+  				<div class="col-md-3 col-sm-6">
+  					<div class="single-service">
+  						<div class="single-service-img">
+  							<div class="service-img">
+  								<img class="bone img-responsive" src="{{url_for('static',filename='images/service4.png')}}" alt="">
+  							</div>
+  						</div>
+  						<h3>human bones problem</h3>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+    <!-- end of service section -->
+
+    <!-- team section -->
+    	<section class="team" id="team">
+    		<div class="container">
+    			<div class="row">
+    				<div class="team-heading text-center">
+    					<h2>our team</h2>
+    					<h4>We have a bunch of doctors in our hospital</h4>
+    				</div>
+    				<!-- <div class="col-md-2 single-member col-sm-4">
+    					<div class="person">
+    						<img class="img-responsive" src="img/member1.jpg" alt="member-1">
+    					</div>
+    					<div class="person-detail">
+    						<div class="arrow-bottom"></div>
+    						<h3>Dr. Manjoro</h3>
+    						<p>Intern as a veterinary Doctor</p>
+    					</div>
+    				</div> -->
+    				<!-- <div class="col-md-2 single-member col-sm-4">
+    					<div class="person-detail">
+    						<div class="arrow-top"></div>
+    						<h3>Dr.paulette</h3>
+    						<p>Main doctor in surgery occupation </p>
+    					</div>
+    					<div class="person">
+    						<img class="img-responsive" src="img/member2.jpg" alt="member-2">
+    					</div>
+    				</div> -->
+    				<!-- <div class="col-md-2 single-member col-sm-4">
+    					<div class="person">
+    						<img class="img-responsive" src="img/member3.jpg" alt="member-3">
+    					</div>
+    					<div class="person-detail">
+    						<div class="arrow-bottom"></div>
+    						<h3>Dr. Brighton Asumani</h3>
+    						<p> Pathologist and a dentist</p>
+    					</div>
+    				</div> -->
+            <div class="row">
+    				<div class="col-md-6">
+    					<div class="person">
+    						<img class="img-responsive img-thumbnail" src="{{url_for('static',filename='images/ben.jpeg')}}" alt="main doctor">
+    					</div>
+              	</div>
+                	<div class="col-md-6">
+              <div class="person-detail">
+    						<div class="arrow-top"></div>
+    						<h3>Dr. Ben Karanja</h3>
+    						<p> Optician with a PHD in ....... </p>
+              </div>
+
+    				</div>
+          </div>
+    				<!-- <div class="col-md-2 single-member col-sm-4">
+    					<div class="person">
+    						<img class="img-responsive" src="img/member5.jpg" alt="member-5">
+    					</div>
+    					 <div class="person-detail">
+    						<div class="arrow-bottom"></div>
+    						<h3>Dr. Steve Kibe</h3>
+    						<p>This is the only doctor we have that knows more about nutrion eg KDF</p>
+    					</div>
+    				</div>
+    				<div class="col-md-2 single-member col-sm-4">
+    					<div class="person-detail">
+    						<div class="arrow-top"></div>
+    						<h3>Dr. Guru</h3>
+    						<p>we habe a gynacologist deals with the female gender</p>
+    					</div>
+    					<div class="person">
+    						<img class="img-responsive" src="img/member6.jpg" alt="member-5">
+    					</div>
+    				</div>
+    			</div>
+    		</div> -->
+    	</section><!-- end of team section -->
+
+      <!-- map section -->
+      	<div class="api-map" id="contact">
+      		<div class="container-fluid">
+      			<div class="row">
+      				<div class="col-md-12 map" id="map"></div>
+      			</div>
+      		</div>
+      	</div><!-- end of map section -->
+
+      	<!-- contact section starts here -->
+      	<section class="contact">
+      		<div class="container">
+      			<div class="row">
+      				<div class="contact-caption clearfix">
+      					<div class="contact-heading text-center">
+      						<h2>contact us</h2>
+      					</div>
+      					<div class="col-md-5 contact-info text-left">
+      						<h3>contact information</h3>
+      						<div class="info-detail">
+      							<ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 9:30 AM to 6:30 PM</li></ul>
+      							<ul><li><i class="fa fa-map-marker"></i><span>Address:</span> moringa street Kenya</ul>
+      							<ul><li><i class="fa fa-phone"></i><span>Phone:</span> +254 791862354</li></ul>
+      							<!-- <ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul> -->
+      							<ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@doctor.com</li></ul>
+      						</div>
+      					</div>
+      					<div class="col-md-6 col-md-offset-1 contact-form">
+      						<h3>FAQ</h3>
+
+      						<form class="form">
+      							<input class="name" type="text" placeholder="Name">
+      							<input class="email" type="email" placeholder="Email">
+      							<input class="phone" type="text" placeholder="Phone No:">
+      							<textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+      							<input class="submit-btn" type="submit" value="SUBMIT" >
+      						</form>
+      					</div>
+      				</div>
+      			</div>
+      		</div>
+      	</section><!-- end of contact section -->
+
+<!-- footer starts here -->
+<footer class="footer clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-skype"></i></a>
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-google-plus"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-linkedin"></i></a>
+        <a href=""><i class="fa fa-pinterest-p"></i></a>
+        <a href=""><i class="fa fa-youtube"></i></a>
+        <a href=""><i class="fa fa-phone"></i></a>
+        <a href=""><i class="fa fa-camera"></i></a>
+
+    </div>
+  </div>
+</footer>
+
+
+<!--<script-->
+
+
+<script src="{{url_for('static',filename='js/jquery-2.1.1.js')}}"></script>
+<script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="{{url_for('static',filename='js/gmaps.js')}}"></script>
+<script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+<script src="{{url_for('static',filename='js/custom.js')}}"></script>
 
 
 
 
 
- <section id="portfolio" class="portfolio">
-
-        </section>
-
-
-        <section id="abouts" class="abouts">
-
-            </div>
-        </section>
-
-
-
-
-
-
-
-<section id="abouts" class="abouts">
-
-                                </figure>
-
-        </section>
-
-<section id="abouts" class="abouts">
-            <div class="container">
-
-        </section>
-
-
-        <section id="footer_widget" class="footer_widget">
-
-
-        </section>
-
-
-        <!--Footer-->
-        <footer id="footer" class="footer">
-
-
-
-
-
- <section id="portfolio" class="portfolio">
-
-        </section>
-
-<!--
-		<div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div> -->
-
-
-
-
-
-
-    </body>
+</body>
 </html>
 
 
