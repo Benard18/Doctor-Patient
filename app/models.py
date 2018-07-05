@@ -36,6 +36,9 @@ class PatientUser(UserMixin, db.Model):
 	def __repr__(self):
 		return f'PatientUser {self.username}'
 
+@login_manager.user_loader
+def load_admin(user_id):
+	return DoctorUser.query.get(int(user_id))
 class DoctorUser(UserMixin, db.Model):
 	__tablename__='doctoruser'
 

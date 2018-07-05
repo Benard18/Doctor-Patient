@@ -24,7 +24,7 @@
         <!--Theme Responsive css-->
         <link rel="stylesheet" href=".static/css/responsive.css" />
         <script src=".static/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
+        <script src='static/js/main.js'></script>
     </head>
     <body>
 
@@ -50,11 +50,18 @@
           <ul class="nav navbar-nav navbar-right">
             <!-- {% if current_user.is_authenticated %} -->
             <li><!-- {{ current_user.username }} --></li>
-            <li><a href="{{url_for('auth.logout')}}">Sign out </a></li>
+            <li><a href="{{url_for('main.logout')}}">Sign out </a></li>
             <!-- {% else %} -->
-            <li><a href="{{url_for('auth.login')}}">Sign in </a></li>
+            <li><a href="{{url_for('main.login')}}" data-toggle='modal' data-target='#MyModal'>Sign in </a></li>
             <!-- {% endif %} -->
-          </ul>
+          </ul><div class='container'>
+          <div id="MyModal" class="modal fade text-center">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
       </div>
