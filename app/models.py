@@ -1,4 +1,4 @@
-from . import db 
+from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import login_manager
@@ -40,11 +40,11 @@ class PatientUser(UserMixin, db.Model):
 	first_name=db.Column(db.String(255))
 	second_name=db.Column(db.String(255))
 	pass_secure=db.Column(db.String(255))
-	password_hash=db.Column(db.String(255))	
+	password_hash=db.Column(db.String(255))
 	email=db.Column(db.String(255))
 	feedback_patient=db.Column(db.String(255))
 	patient_medical_prof=db.Column(db.String(255))
-	
+
 	@property
 	def password(self):
 		raise AttributeError('You cannot read the password attribute')
@@ -87,5 +87,3 @@ class DoctorUser(UserMixin, db.Model):
 
 	def __repr__(self):
 		return f'DoctorUser {self.doctorname}'
-
-
