@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
-{% block app_content %}
-<h1>Patient Registration Form</h1>
-<div class="row">
-<div class="col-md-4">
-{{ wtf.quick_form(registration_form) }}
-</div>
+
+{% block content %}
+<div class="container">
+  
+          <div class="col-md-6">
+          {{ wtf.quick_form(registration_form) }}
+        </div>
+
 </div>
 {% endblock %}

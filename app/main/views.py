@@ -5,6 +5,7 @@ from flask_login import current_user,login_required
 from ..models import DoctorUser
 
 
+
 @main.route('/')
 def index():
 	title="Doctors"

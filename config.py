@@ -1,7 +1,7 @@
 import os
 
 class Config:
-	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://ben:ben@localhost/doctorpatient'
+	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://user:user@localhost/doctorpatient'
 	SECRET_KEY='bleh'
 	UPLOADED_PHOTOS_DEST = 'app/static/photos'
 	MAIL_SERVER = 'smtp.googlemail.com'
@@ -26,5 +26,4 @@ class DevConfig(Config):
 config_options = {
 	'development': DevConfig,
 	'production':ProdConfig
-}		
-
+}
