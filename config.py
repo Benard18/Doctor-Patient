@@ -1,7 +1,6 @@
 import os
 
 class Config:
-	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://ben:ben@localhost/doctorpatientt'
 	SECRET_KEY='bleh'
 	UPLOADED_PHOTOS_DEST = 'app/static/photos'
 	MAIL_SERVER = 'smtp.googlemail.com'
