@@ -12,7 +12,7 @@ from flask_simplemde import SimpleMDE
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
+login_manager.login_view = 'main.login'
 simple = SimpleMDE()
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -22,10 +22,10 @@ mail = Mail()
 def create_app(config_name):
 
     app = Flask(__name__)
-
     # Creating the app configurations
 
     app.config.from_object(config_options[config_name])
+    config_options[config_name].init_app(app)
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)
@@ -37,8 +37,8 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    from .main2 import main2 as main2_blueprint
-    app.register_blueprint(main2_blueprint)
+    from .main import views
+    views.configure_request(app)
 
     # from .auth2 import auth2 as auth2_blueprint
     # app.register_blueprint(auth2_blueprint,url_prefix = '/auth2')
