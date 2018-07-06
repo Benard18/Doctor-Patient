@@ -1,3 +1,2 @@
-export DATABASE_URL='postgres://aoqfliafrpyeun:60299b7de97be649e0e43658909ab16bb955cbab74c6d6b6a8495f54d1300f69@ec2-107-22-241-243.compute-1.amazonaws.com:5432/de3kc09n2v3snc'
-
+export DATABASE_URL='postgres://jvrtuejwpewlcy:15d37f465e2eaa49ba2d0d39d8fd7323994fd116b43edf9586212816c006f3e0@ec2-54-227-237-27.compute-1.amazonaws.com:5432/d2acti75g9eabs'
 python manage.py server
