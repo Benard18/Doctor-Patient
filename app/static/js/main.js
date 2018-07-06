@@ -1,11 +1,7 @@
 $(document).ready(function () {
+	$('#MyModal').modal('hide');
+	$('body').removeClass('modal-open');
+	$('.modal-backdrop').remove();
 
-	$(".btn").on("click", function (event) {
-            if ($(this).hasClass("disabled")) {
-                event.stopPropagation()
-            } else {
-                $('#myModal').modal("show");
-            }
-        });
 
 	});

@@ -22,21 +22,9 @@
 
         <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"></link>
         <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}"></link>
-        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}"></link>
+        <link type="text/javascript" href="{{url_for('static',filename='js/main.js')}}"></link>
 
-
-      <script src="{{url_for('static',filename='js/modernizr.js')}}"></script>
-
-
-        <link rel="stylesheet" href=".static/css/responsive.css" />
-        <script src=".static/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-<<<<<<< HEAD
-        <script src='static/js/main.js'></script>
-=======
-
-
->>>>>>> 9a8f3ecd0cc89c4fe5dacea3d7e4e964991df364
-    </head>
+</head>
     <body>
 
 
@@ -60,29 +48,30 @@
 					        <li><a class="menu" href="#about"><i class="fa fa-info"></i>about us</a></li>
 					        <li><a class="menu" href="#service"><i class="fa fa-ambulance"></i>our services </a></li>
 					        <li><a class="menu" href="#team"><i class="fa fa-user-md"></i>our Doctors</a></li>
-					        <li><a class="menu" href="#contact"> <i class="fa fa-envelope"></i>Book appointment</a></li>
-					      </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <!-- {% if current_user.is_authenticated %} -->
-            <li><!-- {{ current_user.username }} --></li>
+                  {%if current_user.username!='Dr.Ben'%}
+					        <li><a class="menu" href="{{ url_for('main.send_message', recipient='Dr.Ben') }}"> <i class="fa fa-envelope"></i>Book appointment</a></li>
+                  {%endif%}
+                </ul>
+
+          <!-- <ul class="nav navbar-nav navbar-right">
+            {% if current_user.is_authenticated %}
+            <li> {{ current_user.username }}</li>
             <li><a href="{{url_for('main.logout')}}">Sign out </a></li>
-            <!-- {% else %} -->
-            <li><a href="{{url_for('main.login')}}" data-toggle='modal' data-target='#MyModal'>Sign in </a></li>
-            <!-- {% endif %} -->
-          </ul><div class='container'>
-          <div id="MyModal" class="modal fade text-center">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      </div>
-    </div>
+            {% else %}
+            <li><a href="{{url_for('main.login')}}">Sign in </a></li>
+            {% endif %} -->
+
+          </ul>
+
+
   </div>
-</div>
+
+
         </div>
 
       </div>
     </div>
   </header> <!-- end of header area -->
-
   <section class="slider" id="home">
   		<div class="container-fluid">
   			<div class="row">

@@ -1,7 +1,7 @@
 import os
 
 class Config:
-	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://ben:ben@localhost/doctorpatient'
+	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://ben:ben@localhost/doctorpatientt'
 	SECRET_KEY='bleh'
 	UPLOADED_PHOTOS_DEST = 'app/static/photos'
 	MAIL_SERVER = 'smtp.googlemail.com'
@@ -11,6 +11,11 @@ class Config:
 	MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 	SUBJECT_PREFIX = 'PITCH'
 	SENDER_EMAIL = 'benkaranja43@gmail.com'
+	POSTS_PER_PAGE = 25
+	@staticmethod
+	def init_app(app):
+		pass
+
 
 
 

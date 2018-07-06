@@ -23,13 +23,15 @@ def sendemail(email,start,end,currentuser):
     # attendees=[{'email':x} for x in emails]
     GMT_OFF = ':00+03:00'
     EVENT = {
-    	'summary': 'Appointments',
-    	'start': {'dateTime':start+GMT_OFF},
+    	'summary': 'Appointment Accepted',
+        'description':currentuser+' has accepted your appointment request!',
+        'description':'Please accept the appointment to confirm your attendance',
+        'start': {'dateTime':start+GMT_OFF},
     	'end':   {'dateTime':end+GMT_OFF},
     	'attendees':[
-    		{'email':email},
+    		{'email':email}
     	],
-        'description':currentuser+' has requested for an appointment'
+
     }
 
     e = service.events().insert(calendarId='primary',

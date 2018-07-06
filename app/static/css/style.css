@@ -9,7 +9,10 @@
 *
 *
 ****/
-
+.modal-backdrop .fade .in {
+    /* bug fix - no overlay */
+    display: block;
+}
 body {
     margin: 0;
     padding: 0;

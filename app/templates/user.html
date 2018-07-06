@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+
+
+
+{% if current_user.username != user %}
+<p><a href="{{ url_for('main.send_message', recipient='Dr.Ben') }}">{{ ('Send private message') }}</a></p>
+{% endif %}
+{% if user == current_user %}
+<h1>{{ ('User') }}: {{ user.username }}</h1>
+
+{% endif %}
+{%endblock%}
