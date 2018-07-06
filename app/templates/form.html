@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%block content%}
+
+
+<form style='text-align:center' action="/newappointment/" method="post">
+<strong><h1>Appointment Date Set</strong></h1>
+<h1>Start</h1>
+ <strong><input type="datetime-local" name="start"></strong>
+<h1>End</h1>
+ <strong><input type="datetime-local" name="end"></strong>
+ <h1>PLace recipient's email</h1>
+ <div><input type='text' name='email'></strong></div>
+ <div><button style='margin-top:30px;'type='submit'>Submit</button></div>
+</form>
+{%endblock%}

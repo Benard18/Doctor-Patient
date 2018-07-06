@@ -1,21 +1,42 @@
-{% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<h1>Sign In</h1>
-<div class="row">
-<div class="col-md-4">
-{{ wtf.quick_form(form) }}
-</div>
+<head>
+
+    <script src="../../static/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src='../../static/js/jquery-1.11.2.min.js'></script>
+    <script src='../../static/js/main.js'></script>
+</head>
+<div class="container">
+<button type="button" class="close" data-dismiss="modal">X</button>
+  <div class="modal-body">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Patient Form</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+          <div class="col-md-4">
+          {{ wtf.quick_form(login_form) }}
+
+          <button class="btn btn-success"><a href="{{ url_for('main.register') }}">Click to Register!</a></p>
+              <button class="btn btn-success"><a href="{{ url_for('main2.login') }}">Sign in as Admin</a></p>
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 <br>
-<p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
-<p>
-Forgot Your Password?
-<a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
-</p>
-
-
-
-
 {% endblock %}
